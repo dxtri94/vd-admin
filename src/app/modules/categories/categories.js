@@ -50,7 +50,7 @@ function CategoriesCtrl($rootScope, $scope, $uibModal, $templateCache, NgTablePa
   vm.search = search;
   vm.cancelSearch = cancelSearch;
   vm.openAdd = openAdd;
-
+  vm.openEdit = openEdit;
   // watch data
   $scope.$on([
     'categories:deleted',
@@ -133,7 +133,7 @@ function CategoriesCtrl($rootScope, $scope, $uibModal, $templateCache, NgTablePa
   }
 
   // fn open reset password to user popup
-  function openAdd(user) {
+  function openAdd(categories) {
     return $uibModal.open({
       size: 'md',
       template: $templateCache.get('modules/categories/add/categories.tpl.html'),
@@ -156,18 +156,13 @@ function CategoriesCtrl($rootScope, $scope, $uibModal, $templateCache, NgTablePa
   function openEdit(categories) {
     return $uibModal.open({
       size: 'md',
-      template: $templateCache.get('modules/categories/add/categories.tpl.html'),
-      controller: 'AddCategoriesCtrl',
+      template: $templateCache.get('modules/categories/edit/categories.tpl.html'),
+      controller: 'EditCategoriesCtrl',
       controllerAs: 'vm',
       resolve: {
-        // $platforms: function () {
-        //   return Platforms.all()
-        //     .then(function (res) {
-        //       return res;
-        //     }, function () {
-        //       return [];
-        //     });
-        // }
+          $categories: function(){
+            return categories;
+          }
       }
     });
   }

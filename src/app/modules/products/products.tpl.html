@@ -1,30 +1,13 @@
-<div class="categories-management bg-white m-b-xl">
-<div class="row">
-    <div class="container-fluid">
-      <div class="padder">
-        <button class="btn btn-main font-bold"
-                ng-click="vm.openAdd()">
-          <fa class="fa fa-plus m-r-sm"></fa>
-          Add New Categories
-        </button>
-        <div class="pull-right">
-          <search-box ng-model="vm.keyword"
-                      search="vm.search()"
-                      cancel="vm.cancelSearch()"
-                      placeholder="Search ..."></search-box>
-        </div>
-      </div>
-    </div>
-  </div>
+<div class="products-management m-b-xl">
   <div class="row">
     <div class="container-fluid">
       <div class="table-responsive table-manager">
-        <table ng-table="vm.categoriesTable"
+        <table ng-table="vm.productTable"
                class="table table-condensed table-striped">
           <tr ng-repeat="$row in $data track by $index">
-            <td title="'Categories ID'"
+            <td title="'Product ID'"
                 sortable="'id'"
-                class="m-w">
+                class="m-w-sm">
               {{ $row.id }}
             </td>
             <td title="'Name'"
@@ -32,7 +15,28 @@
                 class="m-w">
               {{ $row.name }}
             </td>
-            
+            <td title="'Collection'"
+                sortable="'name'"
+                class="m-w">
+              {{ $row.collection.name }}
+            </td>
+            <td title="'Categories'"
+                sortable="'name'"
+                class="m-w">
+              {{ $row.categories.name || 'N/A'}}
+            </td>
+            <td title="'Description'"
+                class="m-w">
+              {{ $row.description }}
+            </td>
+            <td title="'Image'"
+                class="m-w-md">
+              {{ $row.image }}
+            </td>
+            <td title="'Detail'"
+                class="m-w-md">
+              {{ $row.detail }}
+            </td>
             <td title="'Actions'"
                 class="m-w-sm">
                 <button class="btn btn-icon"
@@ -56,7 +60,7 @@
         <div class="padder m-b-xl"
              ng-if="vm.pagination.total == 0">
           <div class="empty">
-            Not Categories(s) found.
+            Not Product(s) found.
           </div>
         </div>
       </div>

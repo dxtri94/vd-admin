@@ -1,11 +1,11 @@
-angular.module('resources.disputes', [])
+angular.module('resources.product', [])
 
-  .factory('Disputes', DispiteService);
+  .factory('Product', DispiteService);
 
 DispiteService.$injector = ['apiService', '$q'];
 
 function DispiteService(apiService, $q) {
-  var resource = 'disputes';
+  var resource = 'products';
 
   var service = {
     current: null,

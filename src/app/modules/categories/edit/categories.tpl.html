@@ -5,198 +5,27 @@
       <span class="">&times;</span>
     </button>
     <h3 class="modal-title  text-uppercase">
-      Edit Profile
+        Edit Categories
     </h3>
   </div>
-  <div class="modal-body m-b-xxl">
-    <!-- profile avatar-->
-
+  <div class="modal-body">
     <div class="row">
       <div class="container-fluid">
         <form name="form"
-              class=""
+              class="form-validation"
               autofocus
               novalidate>
-
-          <!-- left side -->
-          <div class="row ">
-            <div class="col-sm-6 left-side">
-              <div class="row">
-                <div class="container-fluid">
-                  <div class="text-center">
-                    <input type="file" id="profile-file" class="hidden"
-                           onchange="angular.element(this).scope().vm.selectFile(this)"/>
-                    <div class="thumbnail size90x90 circle pointer"
-                         style="background-image: url('{{ vm.user.avatar_thumbnail || noProfileImage}}')"
-                         ng-click="vm.openUploadFile()">
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="form-group"
-                   ng-class="{'has-error': vm.error.role}">
-                <label class="control-label">Permission</label>
-                <select class="selectpicker form-control"
-                        ng-model="vm.user.role_id"
-                        ng-change="vm.error.role = false"
-                        required>
-                  <!--<option value="">Select Permission</option>-->
-                  <!--<option ng-repeat="role in vm.roles"-->
-                          <!--ng-selected="role.id === vm.user.role_id"-->
-                          <!--value="{{ role.id}}">-->
-                    <!--{{ role.role }}-->
-                  </option>
-                  <option value="">--- Select Permission ---</option>
-                  <option ng-value="role.id" ng-repeat="role in vm.roles track by $index">
-                    {{role.role}}
-                  </option>
-                </select>
-                <span class="error-message"
-                      ng-show="vm.error.role_id">{{ vm.error.role_id }}</span>
-              </div>
-
-              <div class="form-group" ng-class="{'has-error': vm.error.username}">
-                <label>Username</label>
-                <input type="text"
-                       class="form-control"
-                       ng-model="vm.user.username"
-                       placeholder="Username"
-                       ng-change="vm.error.username = false"
-                       required/>
-                <span class="error-message"
-                      ng-show="vm.error.username">{{ vm.error.username }}</span>
-              </div>
-
-              <div class="form-group"
-                   ng-class="{'has-error': vm.error.email}">
-                <label>Email</label>
-                <input type="text"
-                       class="form-control"
-                       ng-model="vm.user.email"
-                       ng-change="vm.error.email = false"
-                       validate-email
-                       ng-disabled="true"
-                       required/>
-              </div>
-
-              <div class="form-group"
-                   ng-class="{'has-error': vm.error.phone}">
-                <label>Phone</label>
-                <input type="text"
-                       placeholder="Phone number"
-                       class="form-control"
-                       ng-model="vm.user.phone"
-                       ng-change="vm.error.phone = false"/>
-                <span class="error-message"
-                      ng-show="vm.error.phone">{{ vm.error.phone }}</span>
-              </div>
-
-            </div>
-
-            <div class="col-sm-6 right-side">
-              <div class="form-group"
-                   ng-class="{'has-error': vm.error.first_name}">
-                <label>First Name</label>
-                <input type="text"
-                       class="form-control "
-                       ng-model="vm.user.first_name"
-                       placeholder="First name"
-                       ng-change="vm.error.first_name = false"
-                       required/>
-                <span class="error-message"
-                      ng-show="vm.error.first_name">{{ vm.error.first_name }}</span>
-              </div>
-
-              <div class="form-group"
-                   ng-class="{'has-error': vm.error.surname}">
-                <label>Surname</label>
-                <input type="text"
-                       class="form-control"
-                       placeholder="Surname"
-                       ng-model="vm.user.surname"
-                       ng-change="vm.error.surname = false"/>
-                <span class="error-message"
-                      ng-show="vm.error.surname">{{ vm.error.surname }}</span>
-              </div>
-
-              <div class="form-group"
-                   ng-class="{'has-error': vm.error.country}">
-                <label>Country</label>
-                <select class="selectpicker form-control"
-                        ng-model="vm.user.location_id"
-                        ng-change="vm.error.location_id = false"
-                        required>
-                  <option value="">--- Select Country ---</option>
-                  <option ng-value="location.id" ng-repeat="location in vm.locations track by $index">
-                    {{location.location}}
-                  </option>
-                </select>
-                <span class="error-message"
-                      ng-show="vm.error.location_id">{{ vm.error.location_id }}</span>
-              </div>
-
-              <div class="form-group"
-                   ng-class="{'has-error': vm.error.province}">
-                <label>Province</label>
-                <input type="text"
-                       class="form-control"
-                       placeholder="Province"
-                       ng-change="vm.error.province = false"
-                       ng-model="vm.user.province"/>
-                <span class="error-message"
-                      ng-show="vm.error.province">{{ vm.error.province }}</span>
-              </div>
-
-              <div class="form-group"
-                   ng-class="{'has-error': vm.error.city}">
-                <label>City</label>
-                <input type="text"
-                       class="form-control"
-                       placeholder="City Name"
-                       ng-change="vm.error.city = false"
-                       ng-model="vm.user.city" required/>
-                <span class="error-message"
-                      ng-show="vm.error.city">{{ vm.error.city }}</span>
-              </div>
-
-              <div class="form-group"
-                   ng-class="{'has-error': vm.error.postal_code}">
-                <label>Postal Code</label>
-                <input type="text"
-                       class="form-control"
-                       placeholder="Postal Code"
-                       ng-change="vm.error.postal_code = false"
-                       ng-model="vm.user.postal_code" required/>
-                <span class="error-message"
-                      ng-show="vm.error.postal_code">{{ vm.error.postal_code }}</span>
-              </div>
-
-              <div class="form-group"
-                   ng-class="{'has-error': vm.error.address1}">
-                <label>Address</label>
-                <input type="text"
-                       class="form-control"
-                       ng-model="vm.user.address1"
-                       placeholder="Address"
-                       ng-change="vm.error.address1"
-                       required/>
-                <span class="error-message"
-                      ng-show="vm.error.address1">{{ vm.error.address1 }}</span>
-              </div>
-
-              <div class="form-group"
-                   ng-class="{'has-error': vm.error.address2}">
-                <label>Address continued (optional)</label>
-                <input type="text"
-                       class="form-control"
-                       ng-model="vm.user.address2"
-                       placeholder="Address continued (optional)"
-                       ng-change="vm.error.address2"/>
-                <span class="error-message"
-                      ng-show="vm.error.address2">{{ vm.error.address2 }}</span>
-              </div>
-            </div>
+          <div class="form-group"
+               ng-class="{'has-error': vm.error.name}">
+            <label class="control-label">Categories Name</label>
+            <input type="text"
+                   class="form-control"
+                   ng-model="vm.categories.name"
+                   ng-change="vm.error.name = false"
+                   maxlength="100"
+                   required/>
+            <span class="color-required"
+                  ng-show="vm.error.name">{{ vm.error.name }}</span>
           </div>
         </form>
       </div>
@@ -206,8 +35,8 @@
     <div class="row">
       <div class="container-fluid text-center">
         <button class="btn btn-main"
-                ng-click="vm.edit()"
-                ng-disabled="form.$invalid">
+                ng-click="vm.edit()">
+              
           Save
         </button>
       </div>

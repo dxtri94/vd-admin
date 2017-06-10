@@ -1,7 +1,7 @@
 angular.module('app.modules', [
   'modules.categories',
   'modules.games',
-  'modules.disputes',
+  'modules.product',
   'modules.newsletters'
 ])
 

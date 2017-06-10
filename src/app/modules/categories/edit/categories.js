@@ -13,13 +13,13 @@ function EditCategoriesCtrl($rootScope, $scope, $uibModalInstance, $categories, 
   vm.init = init;
   vm.edit = edit;
   vm.close = close;
-
+vm.edit = edit;
   // start
   vm.init();
 
   // fn initial
   function init() {
-    vm.categories = $categoriesr;
+    vm.categories = {};
   }
 
   // fn edit user
@@ -31,7 +31,8 @@ function EditCategoriesCtrl($rootScope, $scope, $uibModalInstance, $categories, 
         $rootScope.$broadcast('categories:updated');
       }, function (error) {
         vm.error = {};
-        Errors.categories(error.errors, vm.error);
+        // Errors.categories(error.errors, vm.error);
+        console.log(error);
       });
   }
 

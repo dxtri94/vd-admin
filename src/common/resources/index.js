@@ -5,7 +5,7 @@ angular.module('resources', [
   'resources.roles',
   'resources.locations',
   'resources.users',
-  'resources.disputes',
+  'resources.product',
   'resources.categories',
   'resources.games',
   'resources.platforms',
