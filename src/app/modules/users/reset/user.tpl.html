@@ -1,0 +1,64 @@
+<div class="reset-user">
+  <div class="modal-header bg-main">
+    <button class="close"
+            ng-click="vm.close()">
+      <span class="">&times;</span>
+    </button>
+    <h3 class="modal-title">
+      Reset User Password
+    </h3>
+  </div>
+  <div class="modal-body p-b-sm">
+    <div class="row">
+      <div class="container-fluid">
+        <div class="text-center">
+          <div class="text-gray-light-2 text-normal">You are resetting the password for</div>
+          <div class="font-bold text-black-2 text-normal">{{ vm.user.name }}</div>
+        </div>
+      </div>
+    </div>
+    <div class="row m-t-md">
+      <div class="container-fluid">
+        <form name="form"
+              class="form-validation"
+              autofocus
+              novalidate>
+          <div class="form-group"
+               ng-class="{'has-error': vm.error.password}">
+            <label class="control-label">New Password</label>
+            <input type="password"
+                   class="form-control "
+                   ng-model="vm.user.password"
+                   placeholder="New Password"
+                   ng-change="vm.error.password = false"
+                   required/>
+
+          </div>
+          <div class="form-group"
+               ng-class="{'has-error': vm.error.confirm_password}">
+            <label class="control-label">Confirm Password</label>
+            <input type="password"
+                   id="phone"
+                   class="form-control"
+                   ng-model="vm.user.confirm_password"
+                   placeholder="Confirm Password"
+                   ng-change="vm.error.confirm_password = false"
+                   password-verify="vm.user.password"
+                   required/>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer text-center">
+    <div class="row">
+      <div class="container-fluid">
+        <button class="btn btn-main m-w-sm"
+                ng-click="vm.resetPassword()"
+                ng-disabled="form.$invalid">
+          Save
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

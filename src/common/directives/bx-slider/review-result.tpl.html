@@ -1,0 +1,10 @@
+<div class="template-image-list" id="image-list" bx-slider>
+  <div class="slide" ng-repeat="item in list" bx-slider-item>
+    <a class="img">
+      <div class="thumbnail size90x90"
+           ng-click="onClick(item.src)"
+           ng-style="{'background-image': 'url(' + item.src + ')'}">
+      </div>
+    </a>
+  </div>
+</div>

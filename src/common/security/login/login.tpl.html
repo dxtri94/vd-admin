@@ -1,0 +1,47 @@
+<div class="login w-full">
+  <section class="middle-box loginscreen text-center animated fadeInDown">
+    <div class="container-fluid">
+      <div class="row m-t-s-xxl">
+        <div class="container-fluid">
+          <form name="form"
+                class="form-validation form-horizontal form-animated"
+                autocomplete="off"
+                novalidate>
+            <div class="form-group"
+                 ng-class="{'has-error': vm.errors.username}">
+              <input type="email"
+                     id="email"
+                     class="form-control"
+                     ng-model="vm.user.username"
+                     ng-change="vm.errors.username = false"
+                     placeholder="Username"
+                     required/>
+            </div>
+            <div class="form-group"
+                 ng-class="{'has-error': vm.errors.password}">
+              <input type="password"
+                     id="password"
+                     class="form-control"
+                     ng-model="vm.user.password"
+                     ng-change="vm.errors.password = false"
+                     placeholder="Password"
+                     required/>
+            </div>
+            <div class="row text-center">
+              <button class="btn btn-main w-full"
+                      ng-click="vm.login()">Login
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+  <footer class="app-footer w-full animated flipInX">
+    <p class="text-center">
+      <span>&copy; {{ app.year }} </span>
+      <span class="text-capitalize font-bold">{{ app.name }} </span>
+      <span> | All Rights Reserved.</span>
+    </p>
+  </footer>
+</div>

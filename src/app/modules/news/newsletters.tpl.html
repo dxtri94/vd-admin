@@ -1,0 +1,80 @@
+<div class="newletters-management bg-white m-b-xl">
+  <div class="row">
+    <div class="container-fluid">
+      <div class="padder">
+        <button class="btn btn-main font-bold"
+                ng-click="vm.openAdd()">
+          <fa class="fa fa-plus m-r-sm"></fa>
+          Add New Newsletter
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="container-fluid">
+      <div class="table-responsive table-manager">
+        <table ng-table="vm.newslettersTable"
+               class="table table-condensed table-striped">
+          <tr ng-repeat="$row in $data track by $index">
+            <td title="'Newsletter ID'"
+                sortable="'id'"
+                class="m-w">
+              {{ $row.id }}
+            </td>
+            <td title="'Title'"
+                sortable="'title'"
+                class="m-w">
+              {{ $row.title }}
+            </td>
+            <td title="'Content'"
+                class="m-w-sm">
+              <div class ng-bind-html="vm.bindHtmlContent($row.heading)"></div>
+            </td>
+            <td title="'Actions'"
+                class="m-w-sm">
+              <button class="btn btn-icon"
+                      uib-tooltip="Edit"
+                      tooltip-placement="bottom"
+                      ng-click="vm.openEdit($row)">
+                <i class="fa fa-edit"></i>
+              </button>
+              <button class="btn btn-icon"
+                      uib-tooltip="Remove"
+                      tooltip-placement="bottom"
+                      ng-click="vm.openDestroy($row)">
+                <i class="fa fa-trash"></i>
+              </button>
+            </td>
+          </tr>
+        </table>
+
+        <!-- table empty -->
+        <div class="padder m-b-xl"
+             ng-if="vm.pagination.total == 0">
+          <div class="empty">
+            Not Newsletter(s) found.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- pagination -->
+    <div class="row">
+      <div class="container-fluid text-center">
+        <uib-pagination ng-if="vm.pagination.total > vm.pagination.perPage"
+                        total-items="vm.pagination.total"
+                        ng-model="vm.pagination.page"
+                        ng-change="vm.pagination.change()"
+                        items-per-page="vm.pagination.perPage"
+                        max-size="vm.pagination.maxSize"
+                        class="pagination"
+                        boundary-links="false"
+                        rotate="false"
+                        previous-text="&laquo;"
+                        next-text="&raquo;"
+                        first-text="&laquo;"
+                        last-text="&raquo;"/>
+      </div>
+    </div>
+  </div>
+</div>

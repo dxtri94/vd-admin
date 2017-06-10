@@ -1,0 +1,60 @@
+<div class="categories-management bg-white m-b-xl">
+  <div class="row">
+    <div class="container-fluid">
+      <div class="table-responsive table-manager">
+        <table ng-table="vm.categoriesTable"
+               class="table table-condensed table-striped">
+          <tr ng-repeat="$row in $data track by $index">
+            <td title="'Categories ID'"
+                sortable="'id'"
+                class="m-w">
+              {{ $row.id }}
+            </td>
+            <td title="'Name'"
+                sortable="'actor'"
+                class="m-w">
+              {{ $row.name }}
+            </td>
+            
+            <td title="'Actions'"
+                class="m-w-sm">
+              <button class="btn btn-icon"
+                      uib-tooltip="Solve"
+                      tooltip-placement="bottom"
+                      ng-click="vm.openDestroy($row)">
+                <i class="fa fa-trash"></i>
+              </button>
+            </td>
+          </tr>
+        </table>
+
+        <!-- table empty -->
+        <div class="padder m-b-xl"
+             ng-if="vm.pagination.total == 0">
+          <div class="empty">
+            Not Categories(s) found.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- pagination -->
+    <div class="row">
+      <div class="container-fluid text-center">
+        <uib-pagination ng-if="vm.pagination.total > vm.pagination.perPage"
+                        total-items="vm.pagination.total"
+                        ng-model="vm.pagination.page"
+                        ng-change="vm.pagination.change()"
+                        items-per-page="vm.pagination.perPage"
+                        max-size="vm.pagination.maxSize"
+                        class="pagination"
+                        boundary-links="false"
+                        rotate="false"
+                        previous-text="&laquo;"
+                        next-text="&raquo;"
+                        first-text="&laquo;"
+                        last-text="&raquo;"/>
+      </div>
+    </div>
+  </div>
+</div>

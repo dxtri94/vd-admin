@@ -1,0 +1,280 @@
+body {
+
+}
+
+.top-bg {
+  background: url('../assets/images/top-titles-bg.jpg') 0 0 no-repeat;
+}
+
+.bg-white {
+  background-color: @white;
+}
+
+.app-footer {
+  position: absolute;
+  bottom: 0;
+  background: @main;
+  padding: 20px;
+  color: @white;
+  p {
+    margin: 0;
+  }
+}
+
+.navbar {
+  &.navbar-static-top {
+    .nav {
+      &.navbar-top-links {
+
+      }
+    }
+  }
+}
+
+#page-wrapper {
+  min-height: 100% !important;
+  font-size: 15px;
+}
+
+.wrapper {
+  &.wrapper-content {
+    padding: 40px 35px;
+
+    .search-box {
+      position: relative;
+      width: 215px;
+
+      .form-group {
+        margin-bottom: 0;
+      }
+
+      .form-control {
+        border-color: black;
+        border-radius: 25px;
+        padding-right: 40px;
+        &:focus {
+          border-color: @main;
+        }
+      }
+
+      .btn-search {
+        position: absolute;
+        right: 5px;
+        top: 8px;
+        border: 0;
+        background: none;
+        padding: 0;
+        padding-right: 5px;
+
+        > .icon-search {
+          font-size: 18px;
+          color: black;
+        }
+
+        &:active, &:focus {
+          outline: none;
+
+          > .icon-search {
+            color: @main;
+          }
+        }
+      }
+
+      .btn-search-close {
+        position: absolute;
+        right: 27px;
+        top: 5px;
+        border: 0;
+        background: none;
+        padding: 0;
+        margin-right: 5px;
+        > span {
+          color: @red;
+          font-weight: normal !important;
+          font-size: 8px;
+        }
+        &:focus {
+          outline: none;
+        }
+      }
+    }
+
+  }
+}
+
+.navbar {
+  &.navbar-static-top {
+    background-color: @black-2;
+  }
+}
+
+.page-heading {
+  color: @black-2;
+  .title {
+    font-weight: 400;
+    margin-bottom: 5px;
+  }
+}
+
+.loginscreen {
+  &.middle-box {
+    margin-top: -225px;
+  }
+}
+
+.empty {
+  width: 100%;
+  padding: 12px;
+  font-family: 'OswaldRegular', sans-serif;
+  color: @black;
+  text-align: center;
+  border: 1px solid @gray-3;
+  background-color: @gray-4;
+  margin-bottom: 10px;
+  .border-radius(5px);
+  font-size: 24px;
+}
+
+.tooltip {
+
+  &.top, &.left, &.bottom, &.right {
+
+    .tooltip-arrow {
+      border-bottom-color: @black;
+    }
+  }
+
+  .tooltip-inner {
+    background-color: @black;
+    min-width: 80px;
+  }
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.thumbnail {
+  display: inline-block;
+  height: 150px;
+  width: 150px;
+  background-size: cover;
+  background-position: 50% 50%;
+  border: 1px solid #e2e7e9;
+  background-repeat: no-repeat;
+
+  &.circle {
+    border-radius: 50%;
+  }
+}
+
+.thumbnail2 {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  overflow: hidden;
+  border-radius: 0;
+  margin: 0;
+  display: inline-block;
+  z-index: 100;
+
+  &.circle {
+    border-radius: 50%;
+  }
+
+  img {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    height: 100%;
+    width: auto;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    display: inline-block;
+    max-width: initial;
+  }
+}
+
+.size30x30 {
+  width: 30px;
+  height: 30px;
+}
+
+.size45x45 {
+  width: 45px;
+  height: 45px;
+}
+
+.size90x90 {
+  width: 90px;
+  height: 90px;
+}
+
+.search-form {
+  width: 215px;
+  margin-top: 0px;
+  position: relative;
+
+  .form-control {
+    padding-right: 20px;
+  }
+
+  .btn-search-close {
+    cursor: pointer;
+    position: absolute;
+    right: 44px;
+    top: 50%;
+    margin-top: -10px;
+    color: @red;
+    z-index: 10;
+    font-size: 24px;
+    line-height: 18px;
+  }
+
+  .btn-main {
+    min-width: auto;
+    padding: 7px 12px;
+  }
+}
+
+.result-review-item {
+  position: relative;
+  margin-bottom: 25px;
+
+  .image-review {
+    display: inline-block;
+    height: 300px;
+    width: 100%;
+    background-size: contain;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+  }
+
+  .fullscreen {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    color: @gray-3;
+  }
+}
+
+.result-review-list {
+  .bx-wrapper {
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    border-width: 0;
+    margin: 0;
+    padding: 0;
+
+    .bx-viewport {
+
+      .thumbnail {
+        margin: 0;
+        border-radius: 0;
+      }
+    }
+  }
+}

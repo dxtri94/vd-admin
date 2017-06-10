@@ -1,0 +1,25 @@
+<nav class="navbar-default navbar-static-side" role="navigation" auto-resize fix-height>
+  <div class="sidebar-collapse">
+    <ul side-navigation class="nav" id="side-menu">
+      <li class="nav-header text-center">
+        <div class="profile-element">
+          <img src="assets/images/logo.png"
+               alt="pic"/>
+        </div>
+        <div class="logo-element text-uppercase">
+          <a ng-click="vm.minimalize()">
+            <i class="icon-menu-bar-corner"></i>
+          </a>
+        </div>
+      </li>
+
+      <li ng-repeat="item in vm.menu" ui-sref-active="active" class="text-md">
+        <a ui-sref="{{ item.sref }}" tooltip-placement="right" tooltip="{{ item.label }}">
+          <i class="fa fa-caret-right"></i>
+          <span class="nav-label">{{ item.label }}</span>
+          <span class="label label-main pull-right" ng-if="item.counter">{{ item.counter | currency:'':'0' }}</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+</nav>

@@ -1,0 +1,36 @@
+<div class="modal-content confirm-popup modal-error-box"
+     modal-center
+     ng-enter="actions.confirm()">
+  <div class="modal-header bg-main">
+    <h3 class="text-uppercase modal-title" ng-bind-html="title"></h3>
+    <button type="button"
+            class="close"
+            ng-if="isClose"
+            ng-click="actions.close()">
+      <span>&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="row">
+      <div class="container-fluid">
+        <p class="" ng-bind-html="content"></p>
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <div class="row text-center">
+      <div class="col-xs-6 p-r-sm" ng-if="isCancel">
+        <button class="btn btn-main text-capitalize"
+                ng-click="actions.cancel()">
+          {{ labelCancel }}
+        </button>
+      </div>
+      <div class="p-l-sm" ng-class="{'col-xs-12': !isCancel, 'col-xs-6': isCancel}">
+        <button class="btn btn-main text-capitalize"
+                ng-click="actions.confirm()">
+          {{ labelConfirm }}
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

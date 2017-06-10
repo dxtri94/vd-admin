@@ -1,0 +1,73 @@
+/**
+ * These are the custom mixins used throughout the application.
+ */
+// RGBA colours in IE via a LESS mixin
+.rgba(@colour, @alpha) {
+    @alphaColour: hsla(hue(@colour), saturation(@colour), lightness(@colour), @alpha);
+    @ieAlphaColour: argb(@alphaColour);
+
+    background-color: @colour; // Fallback for older browsers
+    background-color: @alphaColour;
+
+    // IE hacks
+    zoom: 1; // hasLayout
+    background-color: transparent\9;
+    /*
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=@{ieAlphaColour}, endColorstr=@{ieAlphaColour})"; // IE 8+
+        filter:  ~"progid:DXImageTransform.Microsoft.gradient(startColorstr=@{ieAlphaColour}, endColorstr=@{ieAlphaColour})";  // IE 6 & 7
+    */
+}
+.placeholder(@color: @light-gray) {
+    &::-webkit-input-placeholder {
+        color: @color;
+    }
+    &::-moz-placeholder {
+        color: @color;
+    }
+    &:-ms-input-placeholder {
+        color: @color;
+    }
+    &:-moz-placeholder {
+        color: @color;
+    }
+}
+
+.border-radius(@top-left: 5px, @top-right: 5px, @bottom-left: 5px, @bottom-right: 5px) {
+    -webkit-border-radius: @top-left @top-right @bottom-right @bottom-left;
+    -moz-border-radius: @top-left @top-right @bottom-right @bottom-left;
+    border-radius: @top-left @top-right @bottom-right @bottom-left;
+}
+
+.border-radius(@radius: 5px) {
+    -webkit-border-radius: @radius;
+    -moz-border-radius: @radius;
+    border-radius: @radius;
+}
+
+.border(@border-top: @std-border, @border-right: @std-border, @border-bottom: @std-border, @border-left: @std-border) {
+    border-top: @border-top;
+    border-right: @border-right;
+    border-bottom: @border-bottom;
+    border-left: @border-left;
+}
+
+.border(@border: @std-border) {
+    border: @border;
+}
+
+.user-select(@select: none) {
+    -webkit-user-select: @select; /* Chrome/Safari */
+    -moz-user-select: @select; /* Firefox */
+    -ms-user-select: @select; /* IE10+ */
+    -o-user-select: @select;
+    user-select: @select;
+}
+
+.box-center() {
+    margin: auto;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}

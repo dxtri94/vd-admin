@@ -1,0 +1,44 @@
+.btn {
+
+}
+
+.btn-main {
+  background-color: @main;
+  color: @black;
+  display: inline-block;
+  font-size: 13px;
+  padding: 8px 15px;
+  min-width: 120px;
+  text-align: center;
+  text-transform: uppercase;
+  width: auto;
+  text-decoration: none;
+  border-color: @main;;
+  font-family: 'Maven Pro', sans-serif;
+  transition: all 0.3s ease;
+  .border-radius(0);
+
+  &:hover, &:active, &:focus {
+    background-color: @black;
+    color: @main;
+    border-color: @black;
+  }
+}
+
+.btn-icon {
+  background-color: @main;
+  color: @black;
+  display: inline-block;
+  font-size: 15px;
+  padding: 5px 8px;
+  text-align: center;
+  text-decoration: none;
+  border-color: @main;
+  transition: all 0.3s ease;
+
+  &:hover, &:active, &:focus {
+    background-color: @black;
+    color: @main;
+    border-color: @black;
+  }
+}

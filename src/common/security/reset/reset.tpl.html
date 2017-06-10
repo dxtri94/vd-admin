@@ -1,0 +1,61 @@
+<div class="reset-password-form w-full">
+  <header class="text-left animated fadeInLeft back-to">
+    <a ui-sref="loginForm"
+       class="btn btn-link btn-link-main">
+      <i class="icon-arrow-left"></i>
+      <span>Back to Login</span>
+    </a>
+  </header>
+  <section class="middle-box loginscreen text-center animated fadeInDown">
+    <div class="container-fluid">
+      <div class="row m-b-xl">
+        <div class="container-fluid">
+          <div class="logo-img">
+            <img src="assets/images/logo.png"/>
+          </div>
+        </div>
+      </div>
+      <div class="row m-t-s-xxl">
+        <div class="container-fluid">
+          <form name="form"
+                class="form-validation form-horizontal form-animated"
+                autofocus
+                novalidate>
+            <div class="form-group"
+                 ng-class="{'has-error': vm.errors.password}">
+              <input type="password"
+                     id="password"
+                     class="form-control"
+                     ng-model="vm.user.password"
+                     required/>
+              <label for="password">Password</label>
+            </div>
+            <div class="form-group"
+                 ng-class="{'has-error': vm.errors.confirm_password}">
+              <input type="password"
+                     id="confirm_password"
+                     class="form-control"
+                     ng-model="vm.user.confirm_password"
+                     password-verify="vm.user.password"
+                     required/>
+              <label for="confirm_password">Confirm Password</label>
+            </div>
+            <div class="row m-t-xxl text-center">
+              <button class="btn btn-main m-w-md m-b"
+                      ng-disabled="form.$invalid"
+                      ng-click="vm.reset()">Save
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+  <footer class="app-footer w-full animated flipInX">
+    <p class="text-center">
+      <span>&copy; {{ app.year }} </span>
+      <span class="text-capitalize font-bold">{{ app.companyName }}.</span>
+      <span>All Rights Reserved.</span>
+    </p>
+  </footer>
+</div>

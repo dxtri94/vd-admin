@@ -1,0 +1,20 @@
+<div class="nav-bg">
+  <!-- navigation -->
+  <div class="navigator"
+       ng-include="'modules/navigation/navigation.tpl.html'"
+       ng-controller="NavigatorCtrl as vm"></div>
+
+  <!-- page wrapper -->
+  <div id="page-wrapper" class="gray-bg">
+
+    <!-- Header/Top bar view container-->
+    <div class="header" ui-view="header"></div>
+
+    <!-- Main Content view container -->
+    <div ui-view="middle-container"></div>
+
+    <!-- Footer view container -->
+    <div ui-view="footer"></div>
+
+  </div>
+</div>

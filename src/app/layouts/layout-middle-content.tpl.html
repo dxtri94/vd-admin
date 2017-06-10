@@ -1,0 +1,28 @@
+<!-- menu -->
+<!--<div ng-include=" 'modules/sidebar/sidebar.tpl.html' "
+     class="app-aside hidden-xs {{app.settings.asideColor}}"
+     ng-controller="SidebarController">
+    sidebar - menu
+</div>-->
+<!-- end menu -->
+
+<!-- sub header -->
+<div class="row wrapper border-bottom white-bg page-heading">
+  <div class="container-fluid">
+    <h2 class="title">{{ page }}</h2>
+    <ol class="breadcrumb">
+      <li>Admin</li>
+      <li>{{ breadcrumb }}</li>
+    </ol>
+  </div>
+</div>
+
+<!-- content -->
+<div class="row">
+  <div class="wrapper sidebar-wrapper wrapper-content m-b-xxl"
+       min-height offset="120"
+       data-ui-view="main-content">
+    <!-- main content -->
+  </div>
+</div>
+<!-- end contend -->

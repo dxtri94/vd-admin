@@ -1,0 +1,36 @@
+<div class="confirm-popup landing-popup"
+     modal-center
+     ng-enter="actions.confirm()">
+  <div class="modal-header">
+    <div class="row" ng-if="isClose">
+    <span class="icon-close pull-right m-r-sm"
+          ng-click="actions.close()"></span>
+    </div>
+    <h3 class="modal-title text-center text-uppercase m-b-none m-t-none {{ classes.title }}"
+        ng-bind-html="title">
+    </h3>
+  </div>
+  <div class="modal-body">
+    <div class="row">
+      <div class="container-fluid">
+        <p class="text-center text-md" ng-bind-html="content"></p>
+      </div>
+    </div>
+    <div class="row m-t-md">
+      <div class="container-fluid">
+        <div class="text-center">
+          <button
+              class="btn btn-gray-popup btn-create-account text-uppercase p-l-xxl p-r-xxl {{ classes.cancel }} m-r-md"
+              ng-if="isCancel"
+              ng-click="actions.cancel()">
+            {{ labelCancel }}
+          </button>
+          <button class="btn btn-orange-popup btn-create-account text-uppercase p-l-xxl p-r-xxl {{ classes.confirm }}"
+                  ng-click="actions.confirm()">
+            {{ labelConfirm }}
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

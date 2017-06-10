@@ -1,0 +1,24 @@
+<div class="row">
+  <nav class="navbar navbar-static-top m-b-none" role="navigation">
+    <ul class="nav navbar-top-links navbar-right header-admin">
+
+      <li uib-dropdown class="dropdown-settings m-r-none">
+        <a uib-dropdown-toggle class="text-capitalize">
+          <!--<i class="fa fa-cog"></i>-->
+          {{ vm.account.username }}
+          <span class="caret m-l-sm"></span>
+        </a>
+        <ul class="dropdown-menu arrow animated fade-in-down">
+          <li class="" ng-repeat="setting in vm.settings">
+            <a ng-click="setting.event()" ng-if="setting.event">
+              <i class="icon-triangle-right"></i>{{ setting.label }}
+            </a>
+            <a ui-sref="{{ setting.sref}}" ng-if="setting.sref">
+              <i class="icon-triangle-right"></i>{{ setting.label }}
+            </a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+</div>

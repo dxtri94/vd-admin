@@ -1,0 +1,56 @@
+<div class="forgot-form w-full">
+  <header class="text-left animated fadeInLeft back-to">
+    <a ui-sref="loginForm"
+       class="btn btn-link btn-link-main">
+      <i class="icon-arrow-left"></i>
+      <span>Back to Login</span>
+    </a>
+  </header>
+  <section class="middle-box loginscreen text-center animated fadeInDown">
+    <div class="row">
+      <div class="container-fluid">
+        <div class="logo-img">
+          <img src="assets/images/logo.png"/>
+        </div>
+      </div>
+    </div>
+    <div class="row m-t-xxl">
+      <div class="">
+        <h3 class="text-xl text-main font-thin m-b">Forgotten your password?</h3>
+        <p>Enter your email address registered to your account below</p>
+      </div>
+    </div>
+    <div class="row m-t-xl">
+      <div class="container-fluid">
+        <form name="form"
+              class="form-validation form-horizontal form-animated"
+              autofocus=""
+              novalidate>
+          <div class="form-group"
+               ng-class="{'has-error': vm.errors.email}">
+            <input type="email"
+                   id="email"
+                   class="form-control"
+                   ng-model="vm.user.email"
+                   ng-change="vm.errors.email = false"
+                   required/>
+            <label for="email">Email</label>
+          </div>
+          <div class="text-center">
+            <button class="btn btn-main m-w-lg m-b m-t-xxl btn-reset"
+                    ng-disabled="form.$invalid"
+                    ng-click="vm.request()">Reset
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+  <footer class="app-footer w-full animated flipInX">
+    <p class="text-center">
+      <span>&copy; {{ app.year }} </span>
+      <span class="text-capitalize font-bold">{{ app.name }} </span>
+      <span> | All Rights Reserved.</span>
+    </p>
+  </footer>
+</div>

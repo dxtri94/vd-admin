@@ -1,0 +1,38 @@
+<!--
+<div class="form-group">
+  <input type="text" class="form-control input-search"
+         ng-model="keyword"
+         g-places-autocomplete
+         ng-keypress="actions.keyPress($event)"
+         placeholder="{{ placeholder }}"/>
+  <button class="btn-search-close"
+          ng-click="actions.cancel()"
+          ng-if="isCancel">
+    <span class="icon-remove-corner"></span>
+  </button>
+  <button class="btn-search" ng-click="actions.search()">
+    <span class="icon-search"></span>
+  </button>
+</div>-->
+
+<div class="search-form">
+  <div class="input-group">
+    <input type="text"
+           class="form-control"
+           ng-keypress="actions.keyPress($event)"
+           placeholder="{{ placeholder }}"
+           ng-model="keyword"/>
+    <span class="btn-search-close"
+          ng-click="actions.cancel()"
+          ng-if="isCancel">
+      &times;
+      <!--<i class="fa fa-times"></i>-->
+    </span>
+    <span class="input-group-btn">
+      <button class="btn btn-main"
+              ng-click="actions.search()">
+        <i class="fa fa-search"></i>
+      </button>
+    </span>
+  </div>
+</div>

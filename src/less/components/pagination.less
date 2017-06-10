@@ -1,0 +1,47 @@
+.pagination {
+
+  > li {
+
+    > a {
+      color: @black;
+      background-color: @white;
+      border-color: @black;
+
+      &:first-child, &:last-child {
+        border-radius: 0;
+      }
+
+      &:hover {
+        color: @black;
+        background-color: @main;
+        border-color: @black;
+      }
+    }
+
+    &.active {
+      > a {
+        color: @black;
+        background-color: @main;
+        border-color: @black;
+
+        &:hover {
+          color: @black;
+          background-color: @main;
+          border-color: @black;
+        }
+      }
+    }
+
+    &.disabled {
+      > a {
+        background-color: @white;
+        border-color: @black;
+
+        &:active, &:focus, &:hover {
+          background-color: @white;
+          border-color: @black;
+        }
+      }
+    }
+  }
+}

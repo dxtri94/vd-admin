@@ -1,0 +1,60 @@
+<div class="register-form full-width">
+  <section class="box middle-box text-center animated fadeInDown">
+    <div class="box-header">
+      <a ui-sref="landing">
+        <img src="assets/images/logo.png" class="logo-size"/>
+      </a>
+    </div>
+    <div class="box-body p-b">
+      <div class="row">
+        <div class="container-fluid">
+          <form name="form" role="form"
+                class="form-validation form-horizontal"
+                ng-enter="actions.login(form)"
+                novalidate>
+            <div class="form-group m-l-none m-r-none"
+                 ng-class="{'has-error' : error.email}">
+              <input type="email"
+                     class="form-control"
+                     ng-focus="error.email = null"
+                     placeholder="Email"
+                     ng-change="error.email = false"
+                     ng-model="user.email"
+                     validate-email
+                     required/>
+            </div>
+            <div class="form-group m-l-none m-r-none"
+                 ng-class="{'has-error': error.password}">
+              <input type="password"
+                     class="form-control"
+                     ng-focus="isError.password = null"
+                     placeholder="Password"
+                     ng-change="error.password = false"
+                     ng-model="user.password"
+                     required/>
+            </div>
+          </form>
+        </div>
+        <div class="text-center m-t">
+          <a ui-sref="forgotForm"
+             class="text-gray btn-link text-base">
+            Forgot Password?
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="box-footer">
+      <button class="btn btn-main w-full text-uppercase b-r-none text-base p-t p-b"
+              ng-click="actions.login()"
+              ng-disabled="form.$invalid">Login
+      </button>
+    </div>
+  </section>
+  <footer class="app-footer w-full animated flipInX">
+    <p class="text-center">
+      <span>&copy; {{ app.year }} </span>
+      <span class="text-capitalize font-bold">{{ app.name }} </span>
+      <span> | All Rights Reserved.</span>
+    </p>
+  </footer>
+</div>

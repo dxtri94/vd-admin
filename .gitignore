@@ -1,0 +1,7 @@
+/.svn
+/.idea
+/bin
+/build
+/node_modules
+/vendor
+/bower_components

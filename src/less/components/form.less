@@ -1,0 +1,21 @@
+.form-control {
+  &:focus {
+    border-color: @main;
+    box-shadow: none;
+    outline: 0 none;
+  }
+}
+
+.form-validation {
+  .has-error {
+    .form-control
+  }
+}
+
+form {
+  .form-group {
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}

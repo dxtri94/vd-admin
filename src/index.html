@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html ng-app="app" ng-controller="AppCtrl">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta property="og:url" content="{{ app.url }} "/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:title" content="{{ app.name }}"/>
+  <meta property="og:description" content="{{ app.description }}"/>
+  <meta property="og:image" content="{{ app.imageUrl }}"/>
+
+  <link rel="shortcut icon" href="{{ app.favicon }}">
+
+  <title page-title></title>
+
+  <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries. Placeholdr.js enables the placeholder attribute -->
+  <!--[if lt IE 9]>
+  <link rel="stylesheet" href="assets/css/ie8.css">
+  <script type="text/javascript" src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/respond.js/1.1.0/respond.min.js"></script>
+  <script type='text/javascript' src='assets/plugins/misc/placeholdr.js'></script>
+  <![endif]-->
+
+  <!-- compiled CSS -->
+
+  <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="assets/css/summernote-bs3.css">
+  <% styles.forEach(function(file) { %>
+  <link rel="stylesheet" type="text/css" href="<%= file %>"/>
+  <% }); %>
+  <link rel="stylesheet" type="text/css" href="assets/css/icon-snazzel.css"/>
+  <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
+  <script type="text/javascript"
+          src="http://maps.google.com/maps/api/js?language=en&libraries=places&key=AIzaSyDhUU5dIq07n8YKcS0yirI-pzUOEDtAMmQ"></script>
+
+  <!-- compiled JavaScript -->
+  <% scripts.forEach(function(file) { %>
+  <script type="text/javascript" src="<%= file %>"></script>
+  <% }); %>
+
+</head>
+<body class="top-bg pace-done">
+
+<!--Loading bar-->
+<div class="spinner-background" us-spinner spinner-key="spinner"></div>
+
+<!--toaster container-->
+<toaster-container toaster-options="{'position-class': 'toast-top-right', 'close-button':true}"></toaster-container>
+
+<!-- root -->
+<div ui-view="root">
+  <div class="container-fluid">
+    <div class="text-center">
+
+    </div>
+  </div>
+</div>
+
+<!-- build:js scripts/vendor.js -->
+<!--<script type='text/javascript' src='assets/plugins/form-jasnyupload/fileinput.js'></script>
+<script type='text/javascript' src='assets/plugins/form-multiselect/js/jquery.multi-select.min.js'></script>-->
+<!-- endbuild -->
+</body>
+</html>

@@ -1,0 +1,35 @@
+<div class="canelation-account-popup landing-popup" modal-center>
+  <div class="modal-header">
+    <h3 class="modal-title text-center text-uppercase m-b-xs m-t-xs">
+      Cancel Account Creation
+    </h3>
+    <div class="close">
+      <i class="icon-close-2" ng-click="actions.close()"></i>
+    </div>
+  </div>
+  <div class="modal-body">
+    <div class="row m-b-lg">
+      <div class="container-fluid">
+        <p class="text-center">Cancel the creation of this Company Account?</p>
+      </div>
+    </div>
+    <div class="row m-b-md ">
+      <div class="col-sm-6 text-right">
+          <button type="submit"
+                  class="btn btn-gray btn-login p-l-lg p-r-lg"
+                  ng-disabled="form.$invalid"
+                  ng-click="actions.login()">No
+          </button>
+        </div>
+      </div>
+      <div class="col-sm-6">
+          <button type="submit"
+                  class="btn btn-orange-popup btn-login p-l-lg p-r-lg"
+                  ng-disabled="form.$invalid"
+                  ng-click="actions.login()">Yes
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
