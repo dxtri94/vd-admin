@@ -1,4 +1,7 @@
-angular.module('modules.categories', [])
+angular.module('modules.categories', [
+  'modules.categories.add',
+  'modules.categories.edit'
+  ])
   .config(CategoriesConfig)
   .controller('CategoriesCtrl', CategoriesCtrl);
 
@@ -46,6 +49,7 @@ function CategoriesCtrl($rootScope, $scope, $uibModal, $templateCache, NgTablePa
   vm.reloadTable = reloadTable;
   vm.search = search;
   vm.cancelSearch = cancelSearch;
+  vm.openAdd = openAdd;
 
   // watch data
   $scope.$on([
@@ -128,6 +132,46 @@ function CategoriesCtrl($rootScope, $scope, $uibModal, $templateCache, NgTablePa
       });
   }
 
+  // fn open reset password to user popup
+  function openAdd(user) {
+    return $uibModal.open({
+      size: 'md',
+      template: $templateCache.get('modules/categories/add/categories.tpl.html'),
+      controller: 'AddCategoriesCtrl',
+      controllerAs: 'vm',
+      resolve: {
+        // $platforms: function () {
+        //   return Platforms.all()
+        //     .then(function (res) {
+        //       return res;
+        //     }, function () {
+        //       return [];
+        //     });
+        // }
+      }
+    });
+  }
+
+  // fn open reset password to user popup
+  function openEdit(categories) {
+    return $uibModal.open({
+      size: 'md',
+      template: $templateCache.get('modules/categories/add/categories.tpl.html'),
+      controller: 'AddCategoriesCtrl',
+      controllerAs: 'vm',
+      resolve: {
+        // $platforms: function () {
+        //   return Platforms.all()
+        //     .then(function (res) {
+        //       return res;
+        //     }, function () {
+        //       return [];
+        //     });
+        // }
+      }
+    });
+  }
+
   // // get resolve user
   // function getCategories(dispute) {
 
@@ -143,12 +187,12 @@ function CategoriesCtrl($rootScope, $scope, $uibModal, $templateCache, NgTablePa
 
   // fn reload table
   function reloadTable() {
-    vm.transactionsTable.reload();
+    vm.categoriesTable.reload();
   }
 
   // fn search users
   function search() {
-    vm.transactionsTable.page(1);
+    vm.categoriesTable.page(1);
     vm.reloadTable();
   }
 

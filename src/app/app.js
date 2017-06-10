@@ -63,7 +63,7 @@ function AppConf($stateProvider, $urlRouterProvider) {
           return security.requestCurrentUser()
             .then(function () {
               if (security.isAuthenticated()) {
-                $state.go('loggedIn.modules.users');
+                $state.go('loggedIn.modules.categories');
               } else {
                 $cookieStore.remove('authToken');
                 $state.go('loginForm');

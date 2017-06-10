@@ -7,12 +7,12 @@ angular.module('app.constant', [])
 
 
       if (host.indexOf('localhost') !== -1) {
-        return 'http://localhost:80/vondom_be/public/api';
+        return 'http://localhost:8080/vondom_be/public/api';
       } else if (host.indexOf('demo.com') !== -1) {
-        return 'http://localhost:80/vondom_be/public/api';
+        return 'http://localhost:8080/vondom_be/public/api';
       }
 
-      return 'http://localhost:80/vondom_be/public/api';
+      return 'http://localhost:8080/vondom_be/public/api';
     }
 
   })

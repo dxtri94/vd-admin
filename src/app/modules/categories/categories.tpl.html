@@ -1,4 +1,21 @@
 <div class="categories-management bg-white m-b-xl">
+<div class="row">
+    <div class="container-fluid">
+      <div class="padder">
+        <button class="btn btn-main font-bold"
+                ng-click="vm.openAdd()">
+          <fa class="fa fa-plus m-r-sm"></fa>
+          Add New Categories
+        </button>
+        <div class="pull-right">
+          <search-box ng-model="vm.keyword"
+                      search="vm.search()"
+                      cancel="vm.cancelSearch()"
+                      placeholder="Search ..."></search-box>
+        </div>
+      </div>
+    </div>
+  </div>
   <div class="row">
     <div class="container-fluid">
       <div class="table-responsive table-manager">
