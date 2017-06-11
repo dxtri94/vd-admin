@@ -1,9 +1,9 @@
-angular.module('resources.locations', [])
-  .factory('Locations', LocationsService);
+angular.module('resources.collections', [])
+  .factory('Collections', CollectionsService);
 
-LocationsService.$injector = ['apiService', '$q'];
-function LocationsService(apiService, $q) {
-  var resource = 'locations';
+CollectionsService.$injector = ['apiService', '$q'];
+function CollectionsService(apiService, $q) {
+  var resource = 'collections';
 
   var service = {
     all: all

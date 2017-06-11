@@ -1,5 +1,5 @@
 angular.module('modules.product', [
-  
+  'modules.categories.add'
 ])
   .config(ProductConfig)
   .controller('ProductCtrl', ProductCtrl);
@@ -28,8 +28,8 @@ function ProductConfig($stateProvider) {
 }
 
 // fn user controller
-ProductCtrl.$injector = ['$rootScope', '$scope', '$uibModal', '$templateCache', 'ngTableParams', 'Product', 'PAGE', 'Utilities', 'RESULT_STATUS', 'DISPUTE_STATUS'];
-function ProductCtrl($rootScope, $scope, $uibModal, $templateCache, NgTableParams, Product, PAGE, Utilities, RESULT_STATUS, DISPUTE_STATUS) {
+ProductCtrl.$injector = ['$rootScope', '$scope', '$uibModal', '$templateCache', 'ngTableParams', 'Product', 'Categories', 'Collections' , 'PAGE', 'Utilities', 'RESULT_STATUS', 'DISPUTE_STATUS'];
+function ProductCtrl($rootScope, $scope, $uibModal, $templateCache, NgTableParams, Product, Categories, Collections, PAGE, Utilities, RESULT_STATUS, DISPUTE_STATUS) {
   var vm = this;
 
   // variables
@@ -47,7 +47,7 @@ function ProductCtrl($rootScope, $scope, $uibModal, $templateCache, NgTableParam
   vm.reloadTable = reloadTable;
   vm.search = search;
   vm.cancelSearch = cancelSearch;
-
+  vm.openAdd = openAdd;
   // watch data
   $scope.$on([
     'product:deleted',
@@ -132,6 +132,35 @@ function ProductCtrl($rootScope, $scope, $uibModal, $templateCache, NgTableParam
   // fn reload table
   function reloadTable() {
     vm.productTable.reload();
+  }
+
+  // fn open reset password to user popup
+  function openAdd(categories) {
+    return $uibModal.open({
+      size: 'md',
+      template: $templateCache.get('modules/products/add/products.tpl.html'),
+      controller: 'AddproductCtrl',
+      controllerAs: 'vm',
+      resolve: {
+        $categories: function () {
+          return Categories.all()
+            .then(function (res) {
+              console.log(res);
+              return res;
+            }, function () {
+              return [];
+            });
+        },
+        $collections: function(){
+          return Collections.all()
+            .then(function (res) {
+              return res;
+            }, function () {
+              return [];
+            });
+        }
+      }
+    });
   }
 
   // fn search users

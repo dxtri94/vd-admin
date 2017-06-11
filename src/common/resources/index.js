@@ -3,7 +3,7 @@ angular.module('resources', [
   'services.i18nNotifications',
 
   'resources.roles',
-  'resources.locations',
+  'resources.collections',
   'resources.users',
   'resources.product',
   'resources.categories',
